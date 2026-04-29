@@ -55,3 +55,9 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a35x/a35x-vendor.mk)
+
+# Custom ROM identity
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.lineage.display.version=LineageA35x_Christygaming18 \
+    ro.lineage.version=LineageA35x_Christygaming18 \
+    ro.mod.version=Christygaming18_A35x
