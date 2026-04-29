@@ -103,3 +103,6 @@ ro.vendor.qti.va_aosp.support=1
 ro.wifi.channels=
 security.perf_harden=1
 sys.hqm.support=true
+ro.mod.version=Christygaming18_A35x
+ro.lineage.display.version=Christygaming18 A35x
+ro.build.display.id=Christygaming18_A35x-userdebug
