@@ -8,6 +8,7 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_a35x.mk
 
 COMMON_LUNCH_CHOICES := \
+    lunch lineage_a35x-ap3a-userdebug \
     lineage_a35x-user \
     lineage_a35x-userdebug \
     lineage_a35x-eng
