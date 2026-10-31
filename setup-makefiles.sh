@@ -6,31 +6,25 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-set -e
+set -euo pipefail
 
-DEVICE=essi
+DEVICE=a35x
 VENDOR=samsung
 
 # Load extract_utils and do some sanity checks
-MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
-
+MY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ANDROID_ROOT="${MY_DIR}/../../.."
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
-if [ ! -f "${HELPER}" ]; then
-    echo "Unable to find helper script at ${HELPER}"
+if [[ ! -f "${HELPER}" ]]; then
+    echo "Unable to find helper script at ${HELPER}" >&2
     exit 1
 fi
 source "${HELPER}"
 
-# Initialize the helper
+# Initialize the helper and generate vendor makefiles for the A35.
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
-# Warning headers and guards
 write_headers
-
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-
-# Finish
 write_footers
